@@ -1,0 +1,25 @@
+load('sorted_tfidf_features.mat')
+load('sorted_feat_names.mat')
+R=10;
+
+data = full(sorted_tifidf_features);
+
+
+load('wordLemPoS.mat')
+
+
+load('wordLemPoS.mat')
+count = 0;
+for ii = 1:length(feature_names)
+    if max(wordLemPoS.word == feature_names(ii))==0
+        count = count+1;
+        idx(count)=ii; 
+    end
+end
+idx; % the are 174 words that are not in wordLemPoS
+
+feature_names(idx,:)=[];
+data(idx,:)=[];
+
+Tbig = zeros(4826,727,9);
+Tbig[:,:,1] = data(:,1:727)
