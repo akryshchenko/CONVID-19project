@@ -1,0 +1,25 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica-Oblique;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Obtaining and Cleaning the COVID-19 Literature Data set\
+
+\f1\i\b0 This document describes how the Literature dataset was obtained and cleaned to include only unique entries that had both title and full body text, and organized by publication date (oldest to newest). 
+\f2\i0 \
+\
+1. The complete dataset of all 29,000 (approx) articles is found at: https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge\
+	a. Click \'93Download\'94 at the top\
+	b. You also need to download metadata.csv for the publication dates of each article\
+	c. The \'93master.csv\'94 file on Github holds all the papers.\
+2. First, the csv files are uploaded (to Python or any other language) and master and metadata are merged on \'93title\'94 (since they share this column). \
+3. The merged data set then has all entries with \'93NA\'94 in the title or text_body removed. \
+4. Any duplicates in the title or text_body columns are dropped. \
+(5. An optional step, that was used for the initial TF-IDF analysis, was to include only the following columns: title, abstract, text_body, publish_time)\
+6. The rows are sorted based on the date in publish_time (i.e. the publication date of each article)\
+\
+(The Jupyter Notebook CoVid Literature Playground does these steps).  \
+}
