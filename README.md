@@ -1,1 +1,1 @@
-# CONVID-19project
+# COVID-19project
